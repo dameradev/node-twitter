@@ -65,6 +65,10 @@ exports.postLogout = async (req, res, next) => {
 
 exports.getUserProfile = async (req, res, next) => {
   const user = req.user;
+  if(!user){
+    res.redirect('/login')
+  }
+
   let isFollowing = true;
 
   const followers = user.getFollowers();

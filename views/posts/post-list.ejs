@@ -1,21 +1,38 @@
 <%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/forms.css">
 </head>
 <body>
   <%- include('../includes/navigation.ejs') %>
-  <h1>What's new?</h1>
-  <form action="/create-post" method="POST">
-    <label for="content">What's on your mind?</label>
-    <input type="text" name="content" id="content">
-    
-    <button type="submit">Share!</button>
-  </form>
-  <% posts.forEach(p=> { %>
-    <p><%= p.content %></p>
-  <% }) %>
+  <div class="wrapper">
+      <div class="one">
+        one  
+      </div>
+      <div class="two">
+          <h1>What's new?</h1>
+          <form action="/create-post" method="POST">
+            <div class="form-control">
+              <label for="content">What's on your mind?</label>
+              <input type="text" name="content" id="content">
+            </div>
+            <button type="submit">Share!</button>
+          </form>
+          <% posts.forEach(p=> { %>
+            <p><%= p.content %></p>
+          <% }) %>
+      </div>
+      <div class="three">
+        <section>
+          <% users.forEach(user => { %>
+            <a href="/profile/<%= user._id%>"><%= user.email %></a>
+          <% }) %>
+        </section>
+      </div>
+      <div class="four">Four</div>
+      <div class="five">Five</div>
+      <div class="six">Six</div>
+    </div>
+
   
-  <section>
-    <% users.forEach(user => { %>
-      <a href="/profile/<%= user._id%>"><%= user.email %></a>
-    <% }) %>
-  </section>
+  
+  
 <%- include('../includes/end.ejs') %>
