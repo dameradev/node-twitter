@@ -1,0 +1,15 @@
+<%- include('../includes/head.ejs') %>
+</head>
+<body>
+  <%- include('../includes/navigation.ejs') %>
+  <h1>What's new?</h1>
+  <form action="/create-post" method="POST">
+    <label for="content">What's on your mind?</label>
+    <input type="text" name="content" id="content">
+    
+    <button type="submit">Share!</button>
+  </form>
+  <% posts.forEach(p=> { %>
+    <p><%= p.content %></p>
+  <% }) %>
+<%- include('../includes/end.ejs') %>
