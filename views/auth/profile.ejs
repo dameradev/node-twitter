@@ -1,0 +1,16 @@
+<%- include('../includes/head.ejs') %>
+</head>
+<body>
+  <%- include('../includes/navigation.ejs') %>
+  <h1>User Profile</h1>
+  <p>Email: <%= user.email %></p>
+  <% if (!isFollowing) { %>
+    <form action="/follow/<%= user._id %>" method="POST">
+      <button type="submit">Follow</button>
+    </form>
+  <% } else { %>
+    <form action="/unfollow/<%= user._id %>" method="POST">
+      <button type="submit">Unfollow</button>
+    </form>
+  <% }  %>
+<%- include('../includes/end.ejs') %>

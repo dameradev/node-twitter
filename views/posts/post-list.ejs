@@ -12,4 +12,10 @@
   <% posts.forEach(p=> { %>
     <p><%= p.content %></p>
   <% }) %>
+  
+  <section>
+    <% users.forEach(user => { %>
+      <a href="/profile/<%= user._id%>"><%= user.email %></a>
+    <% }) %>
+  </section>
 <%- include('../includes/end.ejs') %>

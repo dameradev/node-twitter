@@ -60,3 +60,69 @@ exports.postLogout = async (req, res, next) => {
   await req.session.destroy();
   res.redirect('/login');
 }
+
+exports.getUserProfile = async (req, res, next) => {
+  const user = req.user;
+  let isFollowing = true;
+  if(!user) {
+    res.redirect('/login');
+  }
+  res.render('auth/profile', {
+    pageTitle: `${user.email} profile`,
+    path: '/profile',
+    isLoggedIn: req.session.isLoggedIn,
+    user,
+    isFollowing
+  })
+}
+
+exports.getProfile = async (req, res, next) => {
+  const currentUser = req.user;
+  if (!currentUser) {
+    res.redirect('/login');
+  }
+  let isFollowing = false;
+  const userId = req.params.userId;
+  const user = await User.findById(userId);
+ 
+  if (currentUser.isFollowing(userId)) {
+    isFollowing = true
+  }
+  
+
+  res.render('auth/profile', {
+    pageTitle: `${user.email} profile`,
+    path: '/profile',
+    isLoggedIn: req.session.isLoggedIn,
+    user,
+    isFollowing
+  })
+}
+
+exports.postFollow = async (req, res, next) => {
+  const currentUser = req.user;
+  const userId = req.params.userId;
+  const user = await User.findById(userId);
+  if(!currentUser) {
+    res.redirect('/login');
+  }
+  await currentUser.follow(userId);
+  await user.addFollower(currentUser._id);
+
+  res.redirect(`/profile/${userId}`)
+}
+
+exports.postUnfollow = async (req, res, next) => {
+  const currentUser = req.user;
+  const userId = req.params.userId;
+  const user =  await User.findById(userId);
+  
+  if(!currentUser) {
+    res.redirect('/login');
+  }
+  await currentUser.unfollow(userId);
+  await user.removeFollower(currentUser._id);
+  
+  res.redirect(`/profile/${userId}`)
+}
+

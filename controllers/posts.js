@@ -1,13 +1,16 @@
 const Post = require('../models/post');
+const User = require('../models/user');
 
 exports.getPosts = async (req, res, next) => {
   const posts = await Post.find({});
+  const users = await User.find({});
   res.render('posts/post-list', {
     pageTitle: "Home",
     path: '/home',
+    isLoggedIn: req.session.isLoggedIn,
     posts,
-    isLoggedIn: req.session.isLoggedIn
-  })
+    users
+  });
 }
 
 exports.createPost = async (req, res, next) => {
