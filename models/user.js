@@ -46,8 +46,12 @@ userSchema.methods.removeFollower = function(id) {
 };
 
 
-// userSchema.methods.getFollowers = function(){
-//   return following.count();
-// }
+userSchema.methods.getFollowers = function(){
+  return this.followers.length;
+}
+
+userSchema.methods.getFollowing = function(){
+  return this.following.length;
+}
 
 module.exports = mongoose.model("User", userSchema);

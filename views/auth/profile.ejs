@@ -3,6 +3,8 @@
 <body>
   <%- include('../includes/navigation.ejs') %>
   <h1>User Profile</h1>
+  <p>Followers: <%= followers %></p>
+  <p>Following: <%= following %></p>
   <p>Email: <%= user.email %></p>
   <% if (!isFollowing) { %>
     <form action="/follow/<%= user._id %>" method="POST">

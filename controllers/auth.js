@@ -53,6 +53,8 @@ exports.postLogin = async (req, res, next) => {
     req.session.user = user;
     await req.session.save();
     res.redirect('/');
+  } else {
+    res.redirect('/login')
   }
 }
 
@@ -64,6 +66,10 @@ exports.postLogout = async (req, res, next) => {
 exports.getUserProfile = async (req, res, next) => {
   const user = req.user;
   let isFollowing = true;
+
+  const followers = user.getFollowers();
+  const following = user.getFollowing();
+
   if(!user) {
     res.redirect('/login');
   }
@@ -72,7 +78,9 @@ exports.getUserProfile = async (req, res, next) => {
     path: '/profile',
     isLoggedIn: req.session.isLoggedIn,
     user,
-    isFollowing
+    isFollowing,
+    followers,
+    following
   })
 }
 
@@ -84,7 +92,10 @@ exports.getProfile = async (req, res, next) => {
   let isFollowing = false;
   const userId = req.params.userId;
   const user = await User.findById(userId);
- 
+  
+  const followers = user.getFollowers();
+  const following = user.getFollowing();
+
   if (currentUser.isFollowing(userId)) {
     isFollowing = true
   }
@@ -95,7 +106,9 @@ exports.getProfile = async (req, res, next) => {
     path: '/profile',
     isLoggedIn: req.session.isLoggedIn,
     user,
-    isFollowing
+    isFollowing,
+    followers,
+    following
   })
 }
 
@@ -116,7 +129,7 @@ exports.postUnfollow = async (req, res, next) => {
   const currentUser = req.user;
   const userId = req.params.userId;
   const user =  await User.findById(userId);
-  
+
   if(!currentUser) {
     res.redirect('/login');
   }
