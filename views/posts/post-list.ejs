@@ -22,8 +22,21 @@
       </div>
       <div class="three">
         <section>
+          
           <% users.forEach(user => { %>
-            <a href="/profile/<%= user._id%>"><%= user.email %></a>
+            
+            <div class="user-suggestion">
+              <a href="/profile/<%= user._id%>">
+                <img src="https://content-static.upwork.com/uploads/2014/10/01073427/profilephoto1.jpg" alt="profilepic">  
+                <%= user.email %>
+              </a>
+              <form action="/follow/<%= user._id %>" method="POST">
+                <button type="submit">Follow</button>
+              </form>
+              
+            </div>
+            
+          
           <% }) %>
         </section>
       </div>

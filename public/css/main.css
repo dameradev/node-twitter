@@ -145,3 +145,39 @@ nav a:hover {
   background: red;
   color: white;
 }
+
+
+/* CUSTOM CSS */
+
+.user-suggestion {
+  padding: 2rem;
+  background: #e2e2e2;
+  opacity: 0.8;
+  border-radius: 5%;
+  margin-bottom: 0.5rem;
+  grid-template-columns: 1fr 1fr;
+  display: grid;
+  grid-gap: 0px;
+  grid-auto-rows: minmax(100px, auto);
+  justify-items: center;
+  text-align: center; 
+  margin-right: 1rem;
+  
+}
+.user-suggestion a {
+ color: #545454;
+ 
+}
+
+.user-suggestion img {
+  width: 50px;
+  border-radius: 100%;
+  margin: auto;
+  margin-bottom: 0.2rem;
+  display: grid;
+}
+.user-suggestion form {
+  grid-column: 1;
+  grid-row: 2;
+  display: grid;
+}
