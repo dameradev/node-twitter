@@ -3,47 +3,49 @@
 </head>
 <body>
   <%- include('../includes/navigation.ejs') %>
-  <div class="wrapper">
-      <div class="one">
-        one  
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        One of three columns
       </div>
-      <div class="two">
-          <h1>What's new?</h1>
+      <div class="col-sm">
+        <h1>What's new?</h1>
           <form action="/create-post" method="POST">
-            <div class="form-control">
               <label for="content">What's on your mind?</label>
               <input type="text" name="content" id="content">
-            </div>
             <button type="submit">Share!</button>
           </form>
           <% posts.forEach(p=> { %>
             <p><%= p.content %></p>
-          <% }) %>
+          <% }) %>       
       </div>
-      <div class="three">
-        <section>
-          
-          <% users.forEach(user => { %>
-            
-            <div class="user-suggestion">
+    <div class="col-sm">
+      
+        <% users.forEach(user => { %>
+          <div class="card">
+            <div class="card-header">
               <a href="/profile/<%= user._id%>">
-                <img src="https://content-static.upwork.com/uploads/2014/10/01073427/profilephoto1.jpg" alt="profilepic">  
+                <img  class="profile-pic" src="https://content-static.upwork.com/uploads/2014/10/01073427/profilephoto1.jpg" alt="profilepic">  
                 <%= user.email %>
-              </a>
-              <form action="/follow/<%= user._id %>" method="POST">
-                <button type="submit">Follow</button>
+              </a>  
+            </div>
+            <div class="card-body ">
+              <!-- <h5 class="card-title">Special title treatment</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+              <form class="text-center" action="/follow/<%= user._id %>"  method="POST">
+                <button  class="btn btn-success " type="submit">Follow</button>
               </form>
               
             </div>
-            
-          
-          <% }) %>
-        </section>
-      </div>
-      <div class="four">Four</div>
-      <div class="five">Five</div>
-      <div class="six">Six</div>
-    </div>
+          </div>
+        <% }) %>
+      
+  </div>  
+</div>
+
+    
+  
 
   
   

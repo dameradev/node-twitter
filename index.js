@@ -1,5 +1,5 @@
 const path = require('path');
-const MONGODB_URI = "mongodb://localhost/todo";
+const MONGODB_URI = "mongodb://localhost/twitter-clone";
 const mongoose = require('mongoose');
 const express = require('express');
 const bodyParser = require("body-parser");

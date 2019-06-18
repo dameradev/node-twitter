@@ -1,1 +1,8 @@
-/*  */
+.card {
+  margin-bottom: 1rem;
+}
+.profile-pic {
+  border-radius: 100%;
+  width: 3rem;
+  margin-right: 1rem;
+}
