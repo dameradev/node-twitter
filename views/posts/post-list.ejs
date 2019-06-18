@@ -12,12 +12,27 @@
       <div class="col-sm">
         <h1>What's new?</h1>
           <form action="/create-post" method="POST">
+            <div class="form-group text-center">
               <label for="content">What's on your mind?</label>
-              <input type="text" name="content" id="content">
-            <button type="submit">Share!</button>
+              <input class="form-control post-input" type="text" name="content" id="content">
+              <button class="btn btn-success" type="submit">Share!</button>
+            </div>
           </form>
           <% posts.forEach(p=> { %>
-            <p><%= p.content %></p>
+            <div class="media single-post">
+                <img  class="profile-pic" src="https://content-static.upwork.com/uploads/2014/10/01073427/profilephoto1.jpg" alt="profilepic">  
+                <div class="media-body">
+                    <span class="font-weight-light text-muted font-italic" >posted by: </span><span class="mt-0"><%= p.userId.email %> </span>
+                  <p><%= p.content %></p>
+                  <% if (p.userId._id.toString() == loggedInUser.toString()) { %>
+                    <form action="/delete-post" method="POST">
+                      <input type="hidden" name="postId" id="postId" value="<%=p._id%>">
+                      <button class="btn btn-danger" type="submit" >Delete post</button> 
+                    </form> 
+                  <% } %>
+                </div>
+                
+            </div>
           <% }) %>       
       </div>
     <div class="col-sm">
