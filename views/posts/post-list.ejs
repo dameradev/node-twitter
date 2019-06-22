@@ -23,13 +23,23 @@
                 <img  class="profile-pic" src="https://content-static.upwork.com/uploads/2014/10/01073427/profilephoto1.jpg" alt="profilepic">  
                 <div class="media-body">
                     <span class="font-weight-light text-muted font-italic" >posted by: </span><span class="mt-0"><%= p.userId.email %> </span>
-                  <p><%= p.content %></p>
+                  <p><%= p.content %>, <%= p.getLikes() %></p>
+                  <form action="/like-post" method="POST">
+                    <input type="hidden" name="postId" id="postId" value="<%=p._id%>">
+                    <button>Like</button>
+                  </form>
+                  <form action="/dislike-post" method="POST">
+                    <input type="hidden" name="postId" id="postId" value="<%=p._id%>">
+                    <button>Dislike</button>
+                  </form>
                   <% if (p.userId._id.toString() == loggedInUser.toString()) { %>
                     <form action="/delete-post" method="POST">
                       <input type="hidden" name="postId" id="postId" value="<%=p._id%>">
                       <button class="btn btn-danger" type="submit" >Delete post</button> 
                     </form> 
                   <% } %>
+                    
+
                 </div>
                 
             </div>

@@ -39,3 +39,34 @@ exports.postDeletePost = async (req, res, next) => {
   await Post.findByIdAndDelete(postId);
   res.redirect('/home');
 }
+
+
+exports.postAddLike = async (req, res, next) => {
+  const currentUser = req.user;
+  const postId = req.body.postId;
+
+  const userId = currentUser._id;
+
+  const post = await Post.findById(postId);
+  if (!currentUser) {
+    res.redirect('/login')
+  }
+  await post.like(userId);
+  res.redirect("/home")
+}
+
+
+
+exports.postRemoveLike = async (req, res, next) => {
+  const currentUser = req.user;
+  const postId = req.body.postId;
+
+  const userId = currentUser._id;
+
+  const post = await Post.findById(postId);
+  if (!currentUser) {
+    res.redirect('/login')
+  }
+  await post.dislike(userId);
+  res.redirect("/home")
+}

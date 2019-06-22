@@ -10,4 +10,7 @@ router.post('/create-post', postController.createPost);
 router.post('/delete-post', postController.postDeletePost);
 
 
+router.post('/like-post', postController.postAddLike);
+router.post('/dislike-post', postController.postRemoveLike);
+
 module.exports = router;
