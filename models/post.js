@@ -38,7 +38,7 @@ postSchema.methods.dislike = function(userId){
   if (this.likes.userIds.indexOf(userId) !== -1){ 
     this.likes.userIds.remove(userId);
     this.likes.numberOfLikes -= 1;
-  }else{
+  } else {
     return;
   }
   
