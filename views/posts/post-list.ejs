@@ -3,8 +3,28 @@
 </head>
 <body>
   <%- include('../includes/navigation.ejs') %>
-  
-  <div class="container">
+  <main>
+    <div class="who-to-follow">
+      <h1>Who to follow!</h1>
+      <% users.forEach(user => { %>
+        <div class="follow-user"> 
+          <img src="https://content-static.upwork.com/uploads/2014/10/01073427/profilephoto1.jpg" alt="">
+          <div>
+            <p><%= user.name %></p>
+            <form class="text-center" action="/follow/<%= user._id %>"  method="POST">
+              <button  class="follow-button" type="submit">Follow</button>
+            </form>
+          </div>
+          <div>
+            <p class="followers">Followers <%= user.followers.length %></p>
+            <p class="following">Following <%= user.following.length %></p>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </main>
+
+  <!-- <div class="container">
     <div class="row">
       <div class="col-sm">
         One of three columns
@@ -56,8 +76,8 @@
               </a>  
             </div>
             <div class="card-body ">
-              <!-- <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+               <h5 class="card-title">Special title treatment</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
               <form class="text-center" action="/follow/<%= user._id %>"  method="POST">
                 <button  class="btn btn-success " type="submit">Follow</button>
               </form>
@@ -70,7 +90,7 @@
 </div>
 
     
-  
+   -->
 
   
   

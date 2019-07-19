@@ -1,0 +1,60 @@
+main {
+  width: 80%;
+  margin: 0 auto;
+}
+.who-to-follow {
+  display: flex;
+  flex-direction: column;
+  width: 20vw;
+  border-radius: 20px;
+  background: #f8f8f8;
+  margin-top: 2rem;
+  font-size: 0.8rem;
+}
+.who-to-follow h1 {
+  margin: 0;
+  background: #3793d1;
+  padding: 0.2rem;
+  border-bottom: 1px solid #bbbbbb;
+  color: #f8f8f8;
+  text-align: center;
+}
+
+.follow-user {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid #bbbbbb;
+}
+
+.follow-user:last-of-type {
+  border:none;
+}
+
+.follow-user img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  margin-top:1.2vh;
+}
+
+.follow-user .followers,
+.follow-user .following {
+  border-radius: 20px;
+  background: #3793d1;
+  color: white;
+  padding: 0.5rem;
+}
+
+.follow-button {
+  outline: none;
+  padding: 0.5rem;
+  border: 1px solid #3793d1;
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
+.delete-question:hover {
+  background: #ff6262;
+  color: white;
+}

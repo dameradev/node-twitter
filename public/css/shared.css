@@ -1,6 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400&display=swap');
+
 body {
   margin: 0;
+  font-family: 'Lato', sans-serif;
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Roboto', sans-serif;
+}
+
 .main-header {
   height: 4rem;
   background: #3793d1;
@@ -44,5 +57,5 @@ body {
 .main-nav-list__item:hover a {
   border-bottom: 5px solid white;
   padding-bottom: 0.5rem;
- 
 }
+
