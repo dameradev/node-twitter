@@ -4,33 +4,28 @@
 <body>
   <%- include('../includes/navigation.ejs') %>
   <main>
-    <div class="who-to-follow">
-      <h1>Who to follow!</h1>
-      <% users.forEach(user => { %>
-        <div class="follow-user"> 
-          <img src="https://content-static.upwork.com/uploads/2014/10/01073427/profilephoto1.jpg" alt="">
-          <div>
-            <p><%= user.name %></p>
-            <form class="text-center" action="/follow/<%= user._id %>"  method="POST">
-              <button  class="follow-button" type="submit">Follow</button>
-            </form>
+    <div class="homepage-wrapper">
+      <div class="who-to-follow">
+        <h1>Who to follow!</h1>
+        <% users.forEach(user => { %>
+          <div class="follow-user"> 
+            <img src="https://content-static.upwork.com/uploads/2014/10/01073427/profilephoto1.jpg" alt="">
+            <div>
+              <p><%= user.name %></p>
+              <form class="text-center" action="/follow/<%= user._id %>"  method="POST">
+                <button  class="follow-button" type="submit">Follow</button>
+              </form>
+            </div>
+            <div>
+              <p class="followers">Followers <%= user.followers.length %></p>
+              <p class="following">Following <%= user.following.length %></p>
+            </div>
           </div>
-          <div>
-            <p class="followers">Followers <%= user.followers.length %></p>
-            <p class="following">Following <%= user.following.length %></p>
-          </div>
-        </div>
-      <% }) %>
-    </div>
-  </main>
-
-  <!-- <div class="container">
-    <div class="row">
-      <div class="col-sm">
-        One of three columns
+        <% }) %>
       </div>
-      <div class="col-sm">
-        <h1>What's new?</h1>
+      <div class="post-list">
+
+        <div class="form">
           <form action="/create-post" method="POST">
             <div class="form-group text-center">
               <label for="content">What's on your mind?</label>
@@ -38,6 +33,38 @@
               <button class="btn btn-success" type="submit">Share!</button>
             </div>
           </form>
+        </div>
+          <% posts.forEach(p=> { %>
+            <div class="post">
+              <div class="image">
+                  <img  class="profile-pic" src="https://content-static.upwork.com/uploads/2014/10/01073427/profilephoto1.jpg" alt="profilepic">  
+              </div> 
+              <div>
+                <div class="post-content"><%= p.content %></div>
+                <div class="post-details">
+                    <div class="posted-by"><span>posted by: </span><span><%= p.userId.name %> </span></div>
+                    <div>
+                      <button>Edit post</button>
+                      <button>Delete post</button>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <!-- <%= p.getLikes() %> -->
+          <% }) %>
+        
+      </div>
+    </div>
+  </main>
+  
+  <!-- <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        One of three columns
+      </div>
+      <div class="col-sm">
+        <h1>What's new?</h1>
+       
           <% posts.forEach(p=> { %>
             <div class="media single-post">
                 <img  class="profile-pic" src="https://content-static.upwork.com/uploads/2014/10/01073427/profilephoto1.jpg" alt="profilepic">  

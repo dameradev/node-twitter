@@ -2,10 +2,16 @@ main {
   width: 80%;
   margin: 0 auto;
 }
+
+.homepage-wrapper {
+  display:flex;
+  flex-direction: row;
+}
+
 .who-to-follow {
   display: flex;
   flex-direction: column;
-  width: 20vw;
+  width: 25%;
   border-radius: 20px;
   background: #f8f8f8;
   margin-top: 2rem;
@@ -54,7 +60,81 @@ main {
   border-radius: 20px;
   font-size: 0.8rem;
 }
-.delete-question:hover {
-  background: #ff6262;
+.follow-button:hover {
+  background: #3793d1;
   color: white;
+}
+
+.post-list {
+  width: 45%;
+  margin: 0 2.5%;
+  margin-top: 2rem;
+}
+
+.post-list form input,
+.post-list form label,
+.post-list form button {
+  display: block;
+  margin:1rem auto;
+}
+
+.post-list form label {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.post-list form input {
+  width: 90%;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+
+}
+
+.post-list form button {
+  margin: 0 auto;
+  outline: none;
+  padding: 0.8rem;
+  border: 1px solid #3793d1;
+  border-radius: 20px;
+  font-size: 1.2rem;
+}
+
+.post-list form button:hover {
+  background: #3793d1;
+  color: white;
+}
+
+.post {
+  /* display: flex;
+  flex-direction: row; */
+  /* justify-content: space-between; */
+  width: 90%;
+  margin: 1rem auto;
+  border:1px solid #bbbbbb;
+  border-radius: 20px;
+}
+
+.post .image {
+  /* border-right: 1px solid #bbbbbb; */
+  /* padding: 1rem; */
+  /* padding-right: 0.2rem; */
+  width: 20%;
+  height: 100%;
+}
+
+.post-content {
+  width: 80%;
+  /* height: 70%; */
+}
+
+
+.post-details {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.posted-by {
+  /* width: 20%; */
 }
