@@ -38,15 +38,19 @@
             <div class="post">
               <div class="image">
                   <img  class="profile-pic" src="https://content-static.upwork.com/uploads/2014/10/01073427/profilephoto1.jpg" alt="profilepic">  
+                  <p> <%= p.userId.name %></p>
               </div> 
-              <div>
+              <div class="post-items">
                 <div class="post-content"><%= p.content %></div>
-                <div class="post-details">
-                    <div class="posted-by"><span>posted by: </span><span><%= p.userId.name %> </span></div>
-                    <div>
-                      <button>Edit post</button>
-                      <button>Delete post</button>
-                    </div>
+                <div class="post-details">  
+                  <form action="/edit-post">
+                    <button class="edit-button" type="submit">Edit post</button>
+                  </form>
+                  <form action="/delete-post" method="POST">
+                    <input type="hidden" name="postId" id="postId" value="<%= p._id %>">
+                    <button class="delete-button" type="submit">Delete post</button>
+                  </form>
+                  
                 </div>
               </div>
             </div>

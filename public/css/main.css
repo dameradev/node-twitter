@@ -71,26 +71,26 @@ main {
   margin-top: 2rem;
 }
 
-.post-list form input,
-.post-list form label,
-.post-list form button {
+.post-list .form input,
+.post-list .form label,
+.post-list .form button {
   display: block;
   margin:1rem auto;
 }
 
-.post-list form label {
+.post-list .form label {
   text-align: center;
   font-size: 1.5rem;
 }
 
-.post-list form input {
+.post-list .form input {
   width: 90%;
   padding: 0.5rem;
   font-size: 1.2rem;
 
 }
 
-.post-list form button {
+.post-list .form button {
   margin: 0 auto;
   outline: none;
   padding: 0.8rem;
@@ -99,40 +99,79 @@ main {
   font-size: 1.2rem;
 }
 
-.post-list form button:hover {
+.post-list .form button:hover {
   background: #3793d1;
   color: white;
 }
 
 .post {
-  /* display: flex;
-  flex-direction: row; */
-  /* justify-content: space-between; */
+  position: relative;
+  display: flex;
+  flex-direction: row;
   width: 90%;
   margin: 1rem auto;
   border:1px solid #bbbbbb;
-  border-radius: 20px;
+  border-left:none;
+  border-right: none;
 }
 
 .post .image {
-  /* border-right: 1px solid #bbbbbb; */
-  /* padding: 1rem; */
-  /* padding-right: 0.2rem; */
-  width: 20%;
+  border-right: 1px solid #bbbbbb;
+  padding: 0.5rem;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.post .image img {
+  margin: 0;
+}
+
+.post .image p {
+  margin: 0;
+  font-size: 0.6rem;
+}
+
+.post-items {
+  flex-grow: 1;
 }
 
 .post-content {
-  width: 80%;
-  /* height: 70%; */
+  padding: 0.5rem;
+  font-weight: 100;
 }
 
-
 .post-details {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  justify-content: space-between;
+  position: absolute;
+  bottom: 1px;
+  right: 0;
+}
+.post-details form {
+  display: inline;
+}
+
+.post-details .delete-button {
+  padding: 0.3rem;
+  border:1px solid red;
+  font-size: 0.5rem;
+  background: white;
+}
+
+.post-details .delete-button:hover {
+  background: #d13737;
+  color: white
+}
+
+.post-details .edit-button {
+  padding: 0.3rem;
+  border:1px solid green;
+  font-size: 0.5rem;
+  background: white;
+}
+
+.post-details .edit-button:hover {
+  background: #53c94f;
+  color: white
 }
 
 .posted-by {
