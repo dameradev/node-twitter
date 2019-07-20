@@ -177,3 +177,63 @@ main {
 .posted-by {
   /* width: 20%; */
 }
+
+.hashtags {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  border-radius: 20px;
+  background: #f8f8f8;
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  max-height: 37vh;
+}
+
+.hashtags h1 {
+  margin: 0;
+  background: #3793d1;
+  padding: 0.2rem;
+  border-bottom: 1px solid #bbbbbb;
+  color: #f8f8f8;
+  text-align: center;
+}
+.hashtag-list {
+  list-style: none;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.hashtag {
+  height: 5vh;
+  border-bottom: 1px solid #bbbbbb;
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.hashtag a {
+  text-decoration: none;
+  color: #252525;
+  font-size:1rem;
+  margin-left: 0.5rem;
+}
+
+.hashtag div {
+  margin-right: 0.5rem;
+}
+.hashtag div p {
+  padding: 0.3rem;
+  background: #3793d1;
+  border-radius: 20px;
+  color: white;
+}
+/* .hashtag {
+  padding: 0.5rem;
+  background: #3793d1;
+} */
+
+.hashtag:last-of-type {
+  border:none;
+}
