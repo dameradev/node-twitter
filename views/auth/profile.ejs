@@ -1,18 +1,54 @@
 <%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/profile.css">
 </head>
 <body>
   <%- include('../includes/navigation.ejs') %>
-  <h1>User Profile</h1>
-  <p>Followers: <%= followers %></p>
-  <p>Following: <%= following %></p>
-  <p>Email: <%= user.email %></p>
-  <% if (!isFollowing) { %>
-    <form action="/follow/<%= user._id %>" method="POST">
-      <button type="submit">Follow</button>
-    </form>
-  <% } else { %>
-    <form action="/unfollow/<%= user._id %>" method="POST">
-      <button type="submit">Unfollow</button>
-    </form>
-  <% }  %>
+  <div class="profile-page">
+    <header>
+      <div class="profile-pic"><img src="/images/profile-pic.jpeg"/></div>
+      <div class="profile-info">
+        <div>
+          <h1><%= user.name %></h1>
+          <p class="followers">Followers: <%= followers %></p>
+          <p class="following">Following: <%= following %></p>
+        </div>
+        <div>
+          <p class="email">Email: <%= user.email %></p>
+          <% if (!isFollowing) { %>
+            <form action="/follow/<%= user._id %>" method="POST">
+              <button class="flw-button" type="submit">Follow</button>
+            </form>
+          <% } else { %>
+            <form action="/unfollow/<%= user._id %>" method="POST">
+              <button class="flw-button" type="submit">Unfollow</button>
+            </form>
+          <% }  %>
+        </div>
+      </div>
+    </header>
+    <div class="posts">
+      <% posts.forEach(p=> { %>
+        <div class="post">
+          <div class="image">
+              <img  class="profile-pic" src="/images/profile-pic.jpeg" alt="profilepic">  
+              <p> <%= p.userId.name %></p>
+          </div> 
+          <div class="post-items">
+            <div class="post-content"><%= p.content %></div>
+            <div class="post-details">  
+              <form action="/edit-post">
+                <button class="edit-button" type="submit">Edit post</button>
+              </form>
+              <form action="/delete-post" method="POST">
+                <input type="hidden" name="postId" id="postId" value="<%= p._id %>">
+                <button class="delete-button" type="submit">Delete post</button>
+              </form>
+              
+            </div>
+          </div>
+        </div>
+      <%})%>
+    </div>
+    
+  </div>
 <%- include('../includes/end.ejs') %>

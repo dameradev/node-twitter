@@ -1,0 +1,97 @@
+.profile-page {
+  list-style: none;
+  /* margin: 64px 0 0 0; */
+  padding: 0;
+  
+}
+.profile-page header {
+  width: 100%;
+  /* background: blue; */
+  
+  /* padding: 0; */
+  display: flex;
+  justify-content: space-between;
+  
+  height: 250px;
+
+  
+}
+.profile-pic {
+  height: 200px;
+  width: 200px;
+  
+}
+.profile-pic img {
+  
+  width: 100%;
+  
+  object-fit: contain;
+}
+
+.profile-page header h1 {
+  margin: 0;
+  padding: 0;
+}
+
+.profile-info {
+  width: 40%;
+  margin-top: 4rem;
+  display: flex;
+  
+  justify-content: space-between;
+  margin-right: 10vw;
+}
+
+.followers {
+  font-weight: 600;
+  color: green;
+}
+
+.following {
+  font-weight: 600;
+  color: red;
+}
+
+
+.email {
+  font-style: italic;
+}
+
+.flw-button {
+  padding: 10px;
+  border:1px solid goldenrod;
+  border-radius: 20px;
+  font-size: 1rem;
+}
+
+.flw-button:hover {
+  background: goldenrod;
+  outline: none;
+  color: white;
+}
+
+.posts {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.post-details {
+  width: auto;
+  height: 25%;
+  position: absolute;
+  right: 0;
+}
+
+.post-details .edit-button {
+  padding: 0.8rem;
+  font-size: 1rem;
+}
+
+.post-details .delete-button {
+  padding: 0.8rem;
+  font-size: 1rem;
+}
+
+.post-content {
+  font-size: 1.4rem;
+}

@@ -28,6 +28,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
+
 app.use(
   session({
     secret: "my secret",
@@ -60,6 +61,6 @@ app.use('/', (req, res, next) => {
 })
 mongoose.connect(MONGODB_URI, {useNewUrlParser: true}).then(()=>{
   console.log('Connected to mongoDb')
-  app.listen(3000);
+  app.listen(3001);
 })
 

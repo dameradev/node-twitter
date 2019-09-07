@@ -1,4 +1,5 @@
 const bcrypt = require('bcrypt');
+const Post = require('../models/post')
 const User = require('../models/user');
 
 exports.getSignup = (req, res, next) => {
@@ -74,6 +75,7 @@ exports.getUserProfile = async (req, res, next) => {
   const followers = user.getFollowers();
   const following = user.getFollowing();
 
+  // const user = user.findById(req.params.id);
   if(!user) {
     res.redirect('/login');
   }
@@ -96,6 +98,7 @@ exports.getProfile = async (req, res, next) => {
   let isFollowing = false;
   const userId = req.params.userId;
   const user = await User.findById(userId);
+  const posts = await Post.find().where({userId: userId});
   
   const followers = user.getFollowers();
   const following = user.getFollowing();
@@ -112,7 +115,8 @@ exports.getProfile = async (req, res, next) => {
     user,
     isFollowing,
     followers,
-    following
+    following,
+    posts
   })
 }
 
